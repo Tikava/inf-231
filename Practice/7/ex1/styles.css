@@ -1,0 +1,15 @@
+.toggle-container {
+    margin: 20px;
+}
+
+#content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+#content.active {
+    opacity: 1;
+    max-height: 200px;
+}

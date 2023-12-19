@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gallery">
+        <div class="gallery-item" data-title="Dog" data-description="Yellow labrador retriever biting yellow tulip flower">
+            <img src="assets/image1.jpg" alt="Image 1">
+        </div>
+        <div class="gallery-item" data-title="Dog" data-description="Black dog">
+            <img src="assets/image2.jpg" alt="Image 2">
+        </div>
+        <div class="gallery-item" data-title="Dogs" data-description="Selective focus photo of three brown puppies">
+            <img src="assets/image3.jpg" alt="Image 3">
+        </div>
+        <div class="gallery-item" data-title="Dog" data-description="Brown french bulldog wearing blue and white polka dot shirt">
+            <img src="assets/image4.jpg" alt="Image 4">
+        </div>
+        <div class="gallery-item" data-title="Dog" data-description="Black and white husky">
+            <img src="assets/image5.jpg" alt="Image 5">
+        </div>
+    </div>
+    <div class="tooltip" id="customTooltip">
+        <h2 id="tooltipTitle"></h2>
+        <p id="tooltipDescription"></p>
+    </div>
+    <div class="slider-controls">
+        <button id="prevButton">Previous</button>
+        <button id="nextButton">Next</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

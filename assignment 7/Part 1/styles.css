@@ -1,0 +1,17 @@
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#gallery img {
+    width: calc(33.33% - 10px);
+    height: auto;
+    object-fit: cover;
+    margin: 5px;
+}
+
+#loading {
+    text-align: center;
+    margin: 20px 0;
+    display: none;
+}

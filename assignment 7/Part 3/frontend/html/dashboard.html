@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        .button-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #recoveryModal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1></h1>
+        <ul id="userInfo"></ul>
+        <div class="button-container">
+            <button id="logoutBtn" onclick="logout()">Logout</button>
+            <button id="recoverBtn" onclick="showRecoveryModal()">Recover Password</button>
+        </div>
+    </div>
+
+    <!-- Recovery Modal -->
+    <div id="recoveryModal">
+        <div class="modal-content">
+            <h3>Password Recovery</h3>
+            <label>Old Password:</label>
+            <input type="password" id="oldPassword">
+            <label>New Password:</label>
+            <input type="password" id="newPassword">
+            <button onclick="recoverPassword()">Recover</button>
+            <button onclick="closeRecoveryModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

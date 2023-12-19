@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in items" @click="removeItem(index)" :key="index">
+                {{ item }}
+            </li>
+        </ul>
+        <button @click="addItem">Add Item</button>
+    </div>
+</body>
+<script>
+    const { createApp, ref } = Vue;
+
+    const App = {
+        setup() {
+            const items = ref(['Apple', 'Banana', 'Cherry']);
+
+            function addItem() {
+                let newItem = prompt('Enter a new item:');
+                if (newItem) {
+                    items.value.push(newItem);
+                }
+            }
+
+            function removeItem(index) {
+                items.value.splice(index, 1);
+            }
+
+            return { items, addItem, removeItem };
+        }
+    }
+
+    createApp(App).mount('#app');
+</script>
+</html>

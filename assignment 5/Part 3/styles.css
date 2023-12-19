@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#book-form, #delete-form, #search-form {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+}
+
+#book-form h2, #delete-form h2, #search-form h2 {
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+#book-list, #search-results {
+    margin-bottom: 20px;
+}
+
+#book-display, #search-results-list {
+    list-style: none;
+    padding: 0;
+}
+
+#book-display li, #search-results-list li {
+    margin-bottom: 10px;
+}
+
+/* Optional: Add hover effect for book items */
+#book-display li:hover, #search-results-list li:hover {
+    background-color: #f0f0f0;
+}

@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>User Registration Form</h1>
+        <form>
+            <div>
+                <label for="username">Username:</label>
+                <input id="username" type="text" v-model="username">
+                <span v-if="errors.username" class="error">{{ errors.username }}</span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input id="email" type="email" v-model="email">
+                <span v-if="errors.email" class="error">{{ errors.email }}</span>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input id="password" type="password" v-model="password">
+                <span v-if="errors.password" class="error">{{ errors.password }}</span>
+            </div>
+            <button type="submit" v-on:click.prevent="submitForm" v-bind:disabled="!isValid">Submit</button>
+        </form>
+    </div>
+    <script>
+        const { createApp, ref, computed, watch } = Vue;
+
+        const App = {
+            setup() {
+                const username = ref('');
+                const email = ref('');
+                const password = ref('');
+                const errors = ref({
+                    username: '',
+                    email: '',
+                    password: ''
+                });
+
+                const isValid = computed(() => {
+                    return Object.values(errors.value).every(error => error === '');
+                });
+
+                watch(username, value => {
+                    validateUsername(value);
+                });
+
+                watch(email, value => {
+                    validateEmail(value);
+                });
+
+                watch(password, value => {
+                    validatePassword(value);
+                });
+
+                function validateUsername(value) {
+                    if (value === '') {
+                        errors.value.username = 'Username cannot be empty';
+                    } else {
+                        errors.value.username = '';
+                    }
+                }
+
+                function validateEmail(value) {
+                    // A simple regex to check email validity
+                    let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if (value === '') {
+                        errors.value.email = 'Email cannot be empty';
+                    } else if (!regex.test(value)) {
+                        errors.value.email = 'Email is not valid';
+                    } else {
+                        errors.value.email = '';
+                    }
+                }
+
+                function validatePassword(value) {
+                    if (value === '') {
+                        errors.value.password = 'Password cannot be empty';
+                    } else if (value.length < 8) {
+                        errors.value.password = 'Password must be at least 8 characters long';
+                    } else {
+                        errors.value.password = '';
+                    }
+                }
+
+                function submitForm() {
+                    validateUsername(username.value);
+                    validateEmail(email.value);
+                    validatePassword(password.value);
+                    if (isValid.value) {
+                        alert('Form submitted successfully!');
+                    }
+                }
+
+
+                return { username, email, password, errors, isValid, submitForm };
+            }
+        }
+
+        createApp(App).mount('#app');
+    </script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</body>
+
+</html>

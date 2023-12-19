@@ -1,0 +1,43 @@
+<html>
+<head>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Task List</h1>
+        <ul>
+            <li v-for="(task, index) in tasks" :key="index">
+                <input type="checkbox" v-model="task.completed">
+                <span :class="{ completed: task.completed }">{{ task.title }}</span>
+            </li>
+        </ul>
+        <input v-model="newTask" placeholder="New task">
+        <button @click="addTask">Add Task</button>
+    </div>
+    <script>
+        const { createApp, ref } = Vue;
+        const App = {
+            setup() {
+                const tasks = ref([
+                    { title: 'Task 1', completed: false },
+                    { title: 'Task 2', completed: true },
+                ]);
+                const newTask = ref('');
+                const addTask = () => {
+                    if (newTask.value) {
+                        tasks.value.push({ title: newTask.value, completed: false });
+                        newTask.value = '';
+                    }
+                };
+                return { tasks, newTask, addTask };
+            },
+        };
+        createApp(App).mount('#app');
+    </script>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</body>
+</html>
