@@ -2,7 +2,7 @@ import FormNumberInput from '../../components/form/FormNumberInput.vue';
 
 export default {
     tags: ['autodocs'],
-    title: 'Form/FormmNumberInput',
+    title: 'Form/NumberInput',
     component: FormNumberInput,
     argTypes: {
         placeholder: { control: 'text', description: 'Input placeholder text' },

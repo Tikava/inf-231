@@ -1,7 +1,7 @@
 import FormPasswordInput from '../../components/form/FormPasswordInput.vue';
 
 export default {
-  title: 'Form/FormPasswordInput',
+  title: 'Form/PasswordInput',
   component: FormPasswordInput,
   argTypes: {
     placeholder: { control: 'text', description: 'Placeholder for the input field' },
